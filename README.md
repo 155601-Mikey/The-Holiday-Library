@@ -8,7 +8,7 @@ A simple JavaScript library to add festive holiday-themed overlays to your websi
   [Live Demo](https://155601-mikey.github.io/The-Holiday-Library/christmasoverlay.html)
 
 - **New Year's Overlay (Fireworks)**:  
-  [Live Demo](#)
+  [Live Demo](https://155601-mikey.github.io/The-Holiday-Library/newyearsoverlay.html)
 
 ## Installation
 
