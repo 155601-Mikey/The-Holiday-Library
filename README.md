@@ -1,33 +1,44 @@
+
 # The Holiday Overlay
 
-A simple JavaScript library to add a festive Holiday-themed overlays to your website.
+A simple JavaScript library to add festive holiday-themed overlays to your website.
 
-## Christmas Demo
-Check out the live demo:  
-[Christmas Overlay Demo](https://155601-mikey.github.io/christmas-overlay-snow)
+## Demos
+- **Christmas Overlay (Snow)**:  
+  [Live Demo](https://155601-mikey.github.io/The-Holiday-Library/christmasoverlay.html)
+
+- **New Year's Overlay (Fireworks)**:  
+  [Live Demo](#)
 
 ## Installation
 
-Include the library in your HTML file:
+Include the desired overlay library in your HTML file:
 
+### Christmas Overlay (Snow)
 ```html
 <script src="https://155601-mikey.github.io/christmas-overlay-snow/ChristmasOverlay.js"></script>
 ```
 
-Usage
-Use the public API to enable or disable the overlay.
+### New Year's Overlay (Fireworks)
+```html
+<script src="https://155601-mikey.github.io/the-holiday-library/NewYearsOverlay.js"></script>
+```
 
-Enable the Overlay
+## Usage
+
+### Christmas Overlay (Snow)
+
+Enable the overlay:
 ```javascript
 christmasOverlaySnow.enable();
 ```
-Disable the Overlay
+
+Disable the overlay:
 ```javascript
 christmasOverlaySnow.disable();
 ```
-Custom Options
-You can customize the overlay by passing options to the enable method:
 
+Custom Options:
 ```javascript
 christmasOverlaySnow.enable({
   snowflakeCount: 100,       // Number of snowflakes (default: 50)
@@ -35,12 +46,49 @@ christmasOverlaySnow.enable({
   zIndex: 99999              // Z-index of the overlay (default: 9999)
 });
 ```
-Contributing
-```
-Feel free to submit issues or pull requests to improve this library!
+
+### New Year's Overlay (Fireworks)
+
+Enable the overlay:
+```javascript
+const fireworks = new FireworksOverlay();
+fireworks.startAnimation();
 ```
 
-License
+Disable the overlay:
+```javascript
+fireworks.stopAnimation();
 ```
+
+Custom Options:
+```javascript
+const fireworks = new FireworksOverlay({
+  colors: ['#FF0000', '#00FF00', '#0000FF'], // Colors of fireworks (default: multicolored)
+  particleCount: 100,                        // Number of particles per firework (default: 50)
+  gravity: 0.05,                             // Simulated gravity (default: 0.02)
+  speed: { min: 3, max: 8 },                 // Speed range of particles (default: { min: 2, max: 6 })
+  radius: { min: 2, max: 5 },                // Radius range of particles (default: { min: 1, max: 3 })
+  interval: 500,                             // Time between fireworks in ms (default: 1000)
+  zIndex: 10000,                             // Z-index of the overlay (default: 9999)
+  toggleButton: '#toggleFireworks',          // Button selector to toggle the overlay (optional)
+});
+```
+
+Add a toggle button:
+```html
+<button id="toggleFireworks">Toggle Fireworks</button>
+```
+
+In your script:
+```javascript
+const fireworks = new FireworksOverlay({
+  toggleButton: '#toggleFireworks', // Automatically links to this button
+});
+```
+
+## Contributing
+
+Feel free to submit issues or pull requests to improve this library!
+
+## License
 This project is licensed under the MIT License.
-```
