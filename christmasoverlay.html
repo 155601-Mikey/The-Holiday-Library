@@ -169,6 +169,26 @@ body {
     gap: 1rem;
     margin: 2rem 0;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.coming-soon {
+    position: relative;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.coming-soon::after {
+    content: 'Coming Soon';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--md-sys-color-surface-variant);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
 }
 
 </style>
@@ -186,6 +206,14 @@ body {
             <button onclick="christmasOverlaySnow.disable()" class="btn">
                 <i class="material-icons">close</i>
                 Disable Snow
+            </button>
+            <button class="btn coming-soon" disabled>
+                <i class="material-icons">celebration</i>
+                New Year's Effect
+            </button>
+            <button class="btn coming-soon" disabled>
+                <i class="material-icons">spider</i>
+                Halloween Effect
             </button>
         </div>
 
