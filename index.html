@@ -1,0 +1,223 @@
+<html><head><base href="https://155601-mikey.github.io/">
+<title>Holiday Library Examples</title>
+<style>
+/* Special overlay effects */
+#snowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#fireworksContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Basic styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background: #001a33;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: #4da6ff;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.demo-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.button {
+  background: #4da6ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.button.enable {
+  background: #4CAF50;
+}
+
+.button.disable {
+  background: #f44336;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left;
+  margin: 20px 0;
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #4da6ff;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+.effects-container {
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Holiday Library Examples</h1>
+  
+  <div class="demo-section">
+    <h2>Christmas Snow Effect</h2>
+    <button id="snowEnable" class="button enable">Enable Snow</button>
+    <button id="snowDisable" class="button disable">Disable Snow</button>
+    <div class="code-block">
+      <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+      <pre>
+// Add to your HTML
+&lt;script src="https://155601-mikey.github.io/The-Holiday-Library/ChristmasOverlay.js">&lt;/script>
+
+// JavaScript
+christmasOverlaySnow.enable({
+  snowflakeCount: 100,
+  snowflakeColor: 'white',
+  zIndex: 9999
+});</pre>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>New Year's Fireworks Effect</h2>
+    <button id="fireworksEnable" class="button enable">Enable Fireworks</button>
+    <button id="fireworksDisable" class="button disable">Disable Fireworks</button>
+    <div class="code-block">
+      <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+      <pre>
+// Add to your HTML
+&lt;script src="https://155601-mikey.github.io/The-Holiday-Library/NewYearsOverlay.js">&lt;/script>
+
+// JavaScript
+const fireworks = new FireworksOverlay({
+  colors: ['#FF0000', '#00FF00', '#0000FF'],
+  particleCount: 100,
+  interval: 500
+});
+fireworks.startAnimation();</pre>
+    </div>
+  </div>
+</div>
+
+<div id="snowContainer"></div>
+<div id="fireworksContainer"></div>
+
+<!-- Load libraries -->
+<script src="https://155601-mikey.github.io/The-Holiday-Library/ChristmasOverlay.js"></script>
+<script src="https://155601-mikey.github.io/The-Holiday-Library/NewYearsOverlay.js"></script>
+
+<script>
+let fireworksInstance;
+
+// Wait for libraries to load
+window.addEventListener('load', () => {
+  // Initialize fireworks instance
+  fireworksInstance = new FireworksOverlay({
+    colors: ['#FF0000', '#00FF00', '#0000FF'],
+    particleCount: 100,
+    interval: 500,
+    zIndex: 9999
+  });
+
+  // Snow enable button
+  document.getElementById('snowEnable').addEventListener('click', () => {
+    christmasOverlaySnow.enable({
+      snowflakeCount: 100,
+      snowflakeColor: 'white',
+      zIndex: 9999
+    });
+  });
+
+  // Snow disable button
+  document.getElementById('snowDisable').addEventListener('click', () => {
+    christmasOverlaySnow.disable();
+  });
+
+  // Fireworks enable button
+  document.getElementById('fireworksEnable').addEventListener('click', () => {
+    fireworksInstance.startAnimation();
+  });
+
+  // Fireworks disable button
+  document.getElementById('fireworksDisable').addEventListener('click', () => {
+    fireworksInstance.stopAnimation();
+  });
+});
+
+// Code copy function
+function copyCode(button) {
+  const codeBlock = button.nextElementSibling;
+  const textArea = document.createElement('textarea');
+  textArea.value = codeBlock.textContent;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textArea);
+  
+  const originalText = button.textContent;
+  button.textContent = 'Copied!';
+  setTimeout(() => {
+    button.textContent = originalText;
+  }, 2000);
+}
+</script>
+</body></html>
