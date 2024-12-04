@@ -1,0 +1,153 @@
+<html><head><base href=""><title>404 - Page Not Found</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #7F3DFF;
+  --secondary: #61DAFB;
+  --background: #111827;
+  --text: #E5E7EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px rgba(127, 61, 255, 0.3));
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(127, 61, 255, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(127, 61, 255, 0.5);
+}
+
+.geometric {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating-404 {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 6rem; }
+  p { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="geometric">
+  <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <pattern id="pattern-hex" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M5,0 L10,2.5 L10,7.5 L5,10 L0,7.5 L0,2.5 Z" fill="currentColor"/>
+    </pattern>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-hex)"/>
+  </svg>
+</div>
+
+<div class="container">
+  <div class="floating-404">
+    <h1>404</h1>
+  </div>
+  <p>Oops! The page you're looking for has vanished into the metaverse.</p>
+  <a href="https://155601-mikey.github.io/The-Holiday-Library/index.html" class="btn">Return Home</a>
+</div>
+
+<script>
+// Add subtle mouse parallax effect
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX / window.innerWidth - 0.5;
+  const mouseY = e.clientY / window.innerHeight - 0.5;
+  
+  const container = document.querySelector('.container');
+  const geometric = document.querySelector('.geometric');
+  
+  container.style.transform = `
+    translate(${mouseX * 20}px, ${mouseY * 20}px)
+  `;
+  
+  geometric.style.transform = `
+    translate(${mouseX * -40}px, ${mouseY * -40}px)
+  `;
+});
+
+// Add touch support for mobile
+document.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const mouseX = touch.clientX / window.innerWidth - 0.5;
+  const mouseY = touch.clientY / window.innerHeight - 0.5;
+  
+  const container = document.querySelector('.container');
+  const geometric = document.querySelector('.geometric');
+  
+  container.style.transform = `
+    translate(${mouseX * 20}px, ${mouseY * 20}px)
+  `;
+  
+  geometric.style.transform = `
+    translate(${mouseX * -40}px, ${mouseY * -40}px)
+  `;
+}, { passive: false });
+</script>
+
+</body></html>
