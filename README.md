@@ -5,13 +5,13 @@ A simple JavaScript library to add festive holiday-themed overlays to your websi
 
 ## Demos
 - **Full example**:
-  [Live demo](https://155601-mikey.github.io/The-Holiday-Library/index.html)
+  [Live demo](https://dadevmikey.github.io/The-Holiday-Library/index.html)
   
 - **Christmas Overlay (Snow)**:  
-  [Live Demo](https://155601-mikey.github.io/The-Holiday-Library/christmasoverlay.html)
+  [Live Demo](https://dadevmikey.github.io/The-Holiday-Library/christmasoverlay.html)
 
 - **New Year's Overlay (Fireworks)**:  
-  [Live Demo](https://155601-mikey.github.io/The-Holiday-Library/newyearsoverlay.html)
+  [Live Demo](https://dadevmikey.github.io/The-Holiday-Library/newyearsoverlay.html)
 
 ## Installation
 
@@ -19,12 +19,12 @@ Include the desired overlay library in your HTML file:
 
 ### Christmas Overlay (Snow)
 ```html
-<script src="https://155601-mikey.github.io/christmas-overlay-snow/ChristmasOverlay.js"></script>
+<script src="https://dadevmikey.github.io/christmas-overlay-snow/ChristmasOverlay.js"></script>
 ```
 
 ### New Year's Overlay (Fireworks)
 ```html
-<script src="https://155601-mikey.github.io/the-holiday-library/NewYearsOverlay.js"></script>
+<script src="https://dadevmikey.github.io/the-holiday-library/NewYearsOverlay.js"></script>
 ```
 
 ## Usage
